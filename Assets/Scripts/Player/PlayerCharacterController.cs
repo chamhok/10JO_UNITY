@@ -33,7 +33,7 @@ public class PlayerCharacterController : Player
     }
     public void CallMoveEvent(Vector2 direction)
     {
-        int speed = 5;
+        int speed = GameManager.Instance.player.speed;
         OnMoveEvent?.Invoke(direction*speed);
     }
 
@@ -41,6 +41,4 @@ public class PlayerCharacterController : Player
     {
         OnLookEvent?.Invoke(direction);
     }
-
-    
 }
