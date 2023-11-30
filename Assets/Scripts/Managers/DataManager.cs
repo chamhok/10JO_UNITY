@@ -98,12 +98,16 @@ public class DataManager : MonoBehaviour
 [System.Serializable]
 public class PlayerData
 {
+    public int maxHp;
+    public int atk;
+    public int speed;
     public int level;
-    public float currentExp;
+    public int currentExp;
     public int money;
 
     public PlayerData()
     {
+        maxHp = 100;
         level = 1;
         currentExp = 0;
         money = 0;
