@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         maxHp = 100; //기본 최대 HP
         hp = maxHp;  //최대 HP -> 스테이지 입장마다 최대 HP로 초기화
         atk = 1;     //공격력 배율(무기 데미지 * atk)
-        speed = 5;   //이동속도 배율
+        speed = 1;   //이동속도 배율
         level = 1;   //현재 레벨(게임 오버, 게임 클리어 시 초기화 - 스테이지 클리어 아님)
         exp = 0;     //현재 exp(게임 오버, 게임 클리어 시 초기화 - 스테이지 클리어 아님)
         money = 0;   //현재 gold(메인화면, 스테이터스 강화 화면에서 사용하는 것으로 maxHp, atk, speed를 영구적으로 증가)
