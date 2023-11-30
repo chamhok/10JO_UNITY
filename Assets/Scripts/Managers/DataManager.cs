@@ -32,10 +32,19 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (instance != this)
+            Destroy(gameObject);
+    }
+
     private void OnDestroy()
     {
-        Debug.Log($"{name} call {nameof(OnDestroy)}");
-        SaveData();
+        if (instance == this)
+        {
+            Debug.Log($"{name} call {nameof(OnDestroy)}");
+            SaveData();
+        }
     }
 
     private void Initialize()
