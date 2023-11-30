@@ -34,7 +34,7 @@ public class ItemManager : MonoBehaviour
         switch(itemType)
         {
             case Define.EItemType.Moon:
-                item = go_Item.AddComponent<Moon>();
+                item = go_Item.AddComponent<MoonRotator>();
                 break;
 
             case Define.EItemType.Turtle:
@@ -42,7 +42,7 @@ public class ItemManager : MonoBehaviour
                 break;
 
             case Define.EItemType.Stone:
-                item = go_Item.AddComponent<Stone>();
+                item = go_Item.AddComponent<StoneThrower>();
                 break;
         }
 

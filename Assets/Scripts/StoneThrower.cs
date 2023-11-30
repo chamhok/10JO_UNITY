@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Stone : Item
+class StoneThrower : Item
 {
     GameObject _stoneSpawnPosition;
     float _armLength = 1.0f;

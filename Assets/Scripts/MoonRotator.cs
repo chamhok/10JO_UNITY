@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Moon : Item
+class MoonRotator : Item
 {
     Vector2[] _offsets = { Vector2.up, Vector2.down, Vector2.right, Vector2.left };
     float _armLength = 1.0f;
