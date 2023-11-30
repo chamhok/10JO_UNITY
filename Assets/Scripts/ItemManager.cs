@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         // Test Code
-        // AddOrUpgradeItem(Define.EItemType.Moon);
+        AddOrUpgradeItem(Define.EItemType.Turtle);
     }
 
     public void AddOrUpgradeItem(Define.EItemType itemType)
@@ -29,16 +29,24 @@ public class ItemManager : MonoBehaviour
     {
         GameObject go_Item = new GameObject(itemType.ToString());
         go_Item.transform.parent = transform;
-        Item? item;
+        Item? item = null;
+        
         switch(itemType)
         {
             case Define.EItemType.Moon:
                 item = go_Item.AddComponent<Moon>();
-                _items.Add(itemType.ToString(), item);
                 break;
 
+            case Define.EItemType.Turtle:
+                item = go_Item.AddComponent<Turtle>();                
+                break;
 
-        }        
+            case Define.EItemType.Stone:
+                item = go_Item.AddComponent<Stone>();
+                break;
+        }
+
+        _items.Add(itemType.ToString(), item);
     }
 
     private void UpgradeItem(Define.EItemType itemType)

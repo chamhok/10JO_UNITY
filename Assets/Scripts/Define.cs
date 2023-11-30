@@ -7,6 +7,8 @@ public class Define// : MonoBehaviour
     public enum EItemType
     {
         Moon,
-
+        Turtle,
+        Stone,
+        Max,
     }
 }

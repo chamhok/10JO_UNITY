@@ -5,6 +5,7 @@ using UnityEngine;
 class Moon : Item
 {
     Vector2[] _offsets = { Vector2.up, Vector2.down, Vector2.right, Vector2.left };
+    float _armLength = 1.0f;
     GameObject[] _satelite = new GameObject[4];
     int _index = 0;
     public float speed = 10.0f;
@@ -16,7 +17,7 @@ class Moon : Item
         {
             GameObject go_Moon = Instantiate(Resources.Load<GameObject>("Item/Moon"));
             go_Moon.transform.parent = this.transform;
-            go_Moon.transform.localPosition = (Vector3)_offsets[i];
+            go_Moon.transform.localPosition = (Vector3)_offsets[i] * _armLength;
             _satelite[i] = go_Moon;
         }
                 
@@ -27,15 +28,10 @@ class Moon : Item
         }
     }
 
-    private void Start()
-    {
-        // 1번 인스턴스 활성화
-        Upgrade();
-    }
-
     private void Update()
     {
         // 회전 
+        if (0 == _index) return;
         transform.Rotate(Vector3.forward, speed * Time.deltaTime);
     }
 

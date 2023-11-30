@@ -4,5 +4,11 @@ using UnityEngine;
 
 abstract class Item : MonoBehaviour
 {
+    public int Lv
+    {
+        get;
+        protected set;
+    }
+
     public abstract void Upgrade();
 }
