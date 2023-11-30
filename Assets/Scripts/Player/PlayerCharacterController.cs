@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCharacterController : MonoBehaviour
+public class PlayerCharacterController : Player
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
 
     private Camera _camera;
-
     private void Awake()
     {
         _camera = Camera.main;
@@ -33,7 +33,8 @@ public class PlayerCharacterController : MonoBehaviour
     }
     public void CallMoveEvent(Vector2 direction)
     {
-        OnMoveEvent?.Invoke(direction);
+        int speed = 5;
+        OnMoveEvent?.Invoke(direction*speed);
     }
 
     public void CallLookEvent(Vector2 direction)

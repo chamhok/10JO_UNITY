@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     /// player 객체 참조 <br/>
     /// 추후에 자료형을 플레이어 클래스로 바꿔야함.
     /// </summary>
-    public GameObject player;
+    public Player player;
 
     /// <summary>
     /// stage에 생성된 monster들을 담을 리스트 <br/>
