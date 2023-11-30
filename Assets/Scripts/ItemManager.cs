@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         // Test Code
-        AddOrUpgradeItem(Define.EItemType.Turtle);
+        AddOrUpgradeItem(Define.EItemType.Stone);
     }
 
     public void AddOrUpgradeItem(Define.EItemType itemType)
@@ -35,6 +35,7 @@ public class ItemManager : MonoBehaviour
         {
             case Define.EItemType.Moon:
                 item = go_Item.AddComponent<MoonRotator>();
+                Debug.Log("Add Component - Moon");
                 break;
 
             case Define.EItemType.Turtle:

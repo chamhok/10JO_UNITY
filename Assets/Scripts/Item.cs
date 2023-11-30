@@ -10,5 +10,10 @@ abstract class Item : MonoBehaviour
         protected set;
     }
 
+    public bool IsMaxLevel()
+    {
+        return Lv == 5;
+    }
+
     public abstract void Upgrade();
 }

@@ -18,6 +18,7 @@ class MoonRotator : Item
             GameObject go_Moon = Instantiate(Resources.Load<GameObject>("Item/Moon"));
             go_Moon.transform.parent = this.transform;
             go_Moon.transform.localPosition = (Vector3)_offsets[i] * _armLength;
+            Debug.Log("Weapon Awake");
             _satelite[i] = go_Moon;
         }
                 
@@ -28,6 +29,12 @@ class MoonRotator : Item
         }
     }
 
+    private void Start()
+    {
+        Debug.Log("Weapon Start");
+        UpdateWeaponDamage();
+    }
+
     private void Update()
     {
         // È¸Àü 
@@ -35,8 +42,17 @@ class MoonRotator : Item
         transform.Rotate(Vector3.forward, speed * Time.deltaTime);
     }
 
+    private void UpdateWeaponDamage()
+    {
+        foreach (var moon in _satelite)
+        {
+            moon.GetComponent<Weapon>().Damage = 10; // Get Player Attack Status
+        }
+    }
+
     public override void Upgrade()
     {
         _satelite[_index++].SetActive(true);
+        ++Lv;
     }
 }

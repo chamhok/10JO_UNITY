@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    protected CircleCollider2D WeaponCollider
-    {
-        get;
-        private set;
-    }
+    [SerializeField] float _colliderRadius;
 
-    protected float Damage
+    CircleCollider2D _weaponCollider;
+
+    public float Damage
     {
         get;
         set;
@@ -19,13 +17,19 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        WeaponCollider = gameObject.AddComponent<CircleCollider2D>();
-        WeaponCollider.isTrigger = true;
+        _weaponCollider = GetComponent<CircleCollider2D>();
+        if(_weaponCollider == null) _weaponCollider = gameObject.AddComponent<CircleCollider2D>();
+    }
+
+    private void Start()
+    {
+        _weaponCollider.isTrigger = true;
+        _weaponCollider.radius = _colliderRadius;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // if( collision.gameObject.tag.Compare() )
-
+        // monster.ApplyDamage();
     }
 }

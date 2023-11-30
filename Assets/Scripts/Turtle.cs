@@ -11,7 +11,9 @@ class Turtle : Item
     GameObject _turtle;
     private void Awake()
     {
-        _circleCollider2D = gameObject.AddComponent<CircleCollider2D>();
+        _circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
+        if(_circleCollider2D == null) _circleCollider2D = gameObject.AddComponent<CircleCollider2D>();
+
         _circleCollider2D.isTrigger = true;
         _turtle = Instantiate(Resources.Load<GameObject>("Item/Turtle"));
         _turtle.transform.parent = this.transform;
